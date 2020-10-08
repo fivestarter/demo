@@ -11,7 +11,7 @@ public class CreateUserPresenter {
         this.createUserWindow = createUserWindow;
     }
 
-    public void setOnClickButtonListener(UserInterface userInterface) {
+    public void setOnClickCreateUserButtonListener(UserInterface userInterface) {
         createUserWindow.setUserInterface(userInterface);
     }
 

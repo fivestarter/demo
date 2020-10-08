@@ -1,6 +1,5 @@
 package ru.fivestarter.demo.user.creation;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
@@ -26,12 +25,12 @@ public class CreateUserWindow extends Window {
     private TextField lastNameField;
     private DateField birthDayField;
     private TextField passwordField;
-    private Button authorizeButton;
+    private Button createUserButton;
     private Button cancelButton;
     private CreateUserPresenter.UserInterface userInterface;
 
     public CreateUserWindow() {
-        super("Authorization window");
+        super("Create user window");
         center();
         setModal(true);
         setClosable(false);
@@ -53,7 +52,7 @@ public class CreateUserWindow extends Window {
         birthDayField = initBirthDayField();
         passwordField = initFormField("Password", VaadinIcons.PASSWORD);
 
-        authorizeButton = new Button("Authorize");
+        createUserButton = new Button("Create");
         cancelButton = new Button("Cancel");
     }
 
@@ -72,7 +71,7 @@ public class CreateUserWindow extends Window {
     }
 
     private void initListeners() {
-        authorizeButton.addClickListener(event -> authorize());
+        createUserButton.addClickListener(event -> authorize());
         cancelButton.addClickListener(event -> closeWindow());
     }
 
@@ -137,7 +136,7 @@ public class CreateUserWindow extends Window {
 
         mainLayout.addComponents(
                 buildAuthorizationForm(),
-                new HorizontalLayout(authorizeButton, cancelButton));
+                new HorizontalLayout(createUserButton, cancelButton));
 
         setContent(mainLayout);
     }

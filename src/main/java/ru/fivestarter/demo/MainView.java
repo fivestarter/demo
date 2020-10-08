@@ -21,7 +21,7 @@ public class MainView extends VerticalLayout {
         buildLayout();
     }
 
-    public void setCreateUserInterface(MainPresenter.CreateUserInterface createUserInterface) {
+    public void setOnClickAddUserButtonListener(MainPresenter.CreateUserInterface createUserInterface) {
         this.createUserInterface = createUserInterface;
     }
 

@@ -32,8 +32,8 @@ public class MainPresenter extends UI {
     }
 
     private void initListeners() {
-        mainView.setCreateUserInterface(() -> UI.getCurrent().addWindow(createUserWindow));
-        createUserPresenter.setOnClickButtonListener(user -> userContentPresenter.addUser(user));
+        mainView.setOnClickAddUserButtonListener(() -> UI.getCurrent().addWindow(createUserWindow));
+        createUserPresenter.setOnClickCreateUserButtonListener(user -> userContentPresenter.addUser(user));
     }
 
     private void buildLayout() {
