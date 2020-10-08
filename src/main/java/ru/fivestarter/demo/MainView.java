@@ -5,14 +5,13 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.VerticalLayout;
 
 import ru.fivestarter.demo.user.content.UserContentView;
-import java.io.Serializable;
 
 public class MainView extends VerticalLayout {
 
     private Button addUserButton;
     private final UserContentView userContentView = new UserContentView();
 
-    private MainPresenter.CreateUserInterface createUserInterface;
+    private MainPresenter.AddUserInterface addUserInterface;
 
     public MainView() {
         super();
@@ -21,8 +20,8 @@ public class MainView extends VerticalLayout {
         buildLayout();
     }
 
-    public void setOnClickAddUserButtonListener(MainPresenter.CreateUserInterface createUserInterface) {
-        this.createUserInterface = createUserInterface;
+    public void setOnClickAddUserButtonListener(MainPresenter.AddUserInterface addUserInterface) {
+        this.addUserInterface = addUserInterface;
     }
 
     public UserContentView getUserContentView() {
@@ -34,7 +33,7 @@ public class MainView extends VerticalLayout {
     }
 
     private void initListeners() {
-        addUserButton.addClickListener(event -> createUserInterface.create());
+        addUserButton.addClickListener(event -> addUserInterface.create());
     }
 
     private void buildLayout() {

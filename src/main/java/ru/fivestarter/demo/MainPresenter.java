@@ -40,7 +40,7 @@ public class MainPresenter extends UI {
         setContent(mainView);
     }
 
-    public interface CreateUserInterface extends Serializable {
+    public interface AddUserInterface extends Serializable {
         void create();
     }
 }
