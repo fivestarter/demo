@@ -1,10 +1,10 @@
 package ru.fivestarter.demo.user.content;
 
-import ru.fivestarter.demo.user.User;
-
 import org.apache.commons.lang3.StringUtils;
 
 import com.vaadin.ui.Label;
+
+import ru.fivestarter.demo.user.User;
 
 public class UserContentPresenter {
     private UserContentView userContentView;
