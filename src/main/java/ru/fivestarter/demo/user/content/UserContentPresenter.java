@@ -14,7 +14,7 @@ public class UserContentPresenter {
     }
 
     public void addUser(User user) {
-        userContentView.addComponent(new Label(toStringLabelText(user)));
+        userContentView.getContainerView().addComponent(new Label(toStringLabelText(user)));
     }
 
     private String toStringLabelText(User user) {

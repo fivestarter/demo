@@ -5,13 +5,13 @@ import com.vaadin.ui.VerticalLayout;
 
 public class UserContentView extends VerticalLayout {
 
-    public VerticalLayout getContainerView() {
-        return containerView;
-    }
-
     private final VerticalLayout containerView = new VerticalLayout();
 
     public UserContentView() {
-        addComponent(new Label("User list"));
+        addComponents(new Label("User list"), containerView);
+    }
+
+    public VerticalLayout getContainerView() {
+        return containerView;
     }
 }

@@ -46,11 +46,18 @@ public class CreateUserWindow extends Window {
         loginField = initFormField("Login", VaadinIcons.USER);
         firstNameField = initFormField("First name", VaadinIcons.USER);
         lastNameField = initFormField("Last name", VaadinIcons.USER);
-        birthDayField = new DateField("Birth day");
+        birthDayField = getDateField("Birth day", VaadinIcons.DATE_INPUT);
         passwordField = initFormField("Password", VaadinIcons.PASSWORD);
 
         authorizeButton = new Button("Authorize");
         cancelButton = new Button("Cancel");
+    }
+
+    private DateField getDateField(String caption, Resource icon) {
+        DateField dateField = new DateField(caption);
+        dateField.setIcon(icon);
+        dateField.setRequiredIndicatorVisible(true);
+        return dateField;
     }
 
     private TextField initFormField(String caption, Resource icon) {
