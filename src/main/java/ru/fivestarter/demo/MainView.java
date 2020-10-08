@@ -5,6 +5,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.VerticalLayout;
 
 import ru.fivestarter.demo.user.content.UserContentView;
+import java.io.Serializable;
 
 public class MainView extends VerticalLayout {
 

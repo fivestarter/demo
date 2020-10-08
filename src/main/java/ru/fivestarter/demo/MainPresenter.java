@@ -8,6 +8,7 @@ import com.vaadin.ui.UI;
 import ru.fivestarter.demo.user.content.UserContentPresenter;
 import ru.fivestarter.demo.user.creation.CreateUserPresenter;
 import ru.fivestarter.demo.user.creation.CreateUserWindow;
+import java.io.Serializable;
 
 @SpringUI
 @Theme("valo")
@@ -39,7 +40,7 @@ public class MainPresenter extends UI {
         setContent(mainView);
     }
 
-    public interface CreateUserInterface {
+    public interface CreateUserInterface extends Serializable {
         void create();
     }
 }

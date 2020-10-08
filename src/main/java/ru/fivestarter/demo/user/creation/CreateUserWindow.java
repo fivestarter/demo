@@ -1,5 +1,6 @@
 package ru.fivestarter.demo.user.creation;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
