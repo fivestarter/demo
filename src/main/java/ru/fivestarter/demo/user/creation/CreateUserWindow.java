@@ -1,5 +1,9 @@
 package ru.fivestarter.demo.user.creation;
 
+import java.util.Objects;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Resource;
 import com.vaadin.ui.Alignment;
@@ -12,7 +16,6 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import ru.fivestarter.demo.user.User;
 
 public class CreateUserWindow extends Window {
@@ -79,20 +82,17 @@ public class CreateUserWindow extends Window {
     }
 
     public void authorize() {
-        //if (validate());
-        try {
-            //validate2();
+        String validationErrors = validate();
+        if (StringUtils.isBlank(validationErrors)) {
             User user = gatherData();
-//            Notification.show("This is the authorize information:",
-//                    String.format("Login: %s, Password: %s", loginField.getValue(), passwordField.getValue()),
-//                    Notification.Type.HUMANIZED_MESSAGE);
             userInterface.getUser(user);
             close();
-        } catch (ValueException e) {
-            Notification.show("This is the authorize information:",
-                    e.getMessage(),
-                    Notification.Type.HUMANIZED_MESSAGE);
+        } else {
+            Notification.show("There were problems with the following fields:",
+                    validationErrors,
+                    Notification.Type.ERROR_MESSAGE);
         }
+
     }
 
     private User gatherData() {
@@ -105,22 +105,30 @@ public class CreateUserWindow extends Window {
 
     }
 
-//    private String validate() {
-//        StringBuilder messages;
-//        if (StringUtils.isEmpty(loginField.getValue()) {
-//
-//        }
-//    }
-//
-//    private String validate2() {
-//        StringBuilder messages = new StringBuilder();
-//        if (StringUtils.isEmpty(loginField.getValue()) {
-//
-//        }
-//        if (StringUtils.isNotEmpty(messages.toString())) {
-//            throw new ValueException("" + messages.toString());
-//        }
-//    }
+    private String validate() {
+        StringBuilder validationErrors = new StringBuilder();
+        if (StringUtils.isEmpty(loginField.getValue())) {
+            validationErrors.append("Login can't be blank.");
+            validationErrors.append(StringUtils.LF);
+        }
+        if (StringUtils.isEmpty(firstNameField.getValue())) {
+            validationErrors.append("First name can't be blank.");
+            validationErrors.append(StringUtils.LF);
+        }
+        if (StringUtils.isEmpty(lastNameField.getValue())) {
+            validationErrors.append("Last name can't be blank.");
+            validationErrors.append(StringUtils.LF);
+        }
+        if (Objects.isNull(birthDayField.getValue())) {
+            validationErrors.append("Birth day can't be blank.");
+            validationErrors.append(StringUtils.LF);
+        }
+        if (StringUtils.isEmpty(passwordField.getValue())) {
+            validationErrors.append("Password can't be blank.");
+            validationErrors.append(StringUtils.LF);
+        }
+        return validationErrors.toString();
+    }
 
     private void buildLayout() {
         final VerticalLayout mainLayout = new VerticalLayout();
