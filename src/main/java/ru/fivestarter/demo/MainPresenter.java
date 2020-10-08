@@ -1,5 +1,9 @@
 package ru.fivestarter.demo;
 
+import ru.fivestarter.demo.user.content.UserContentPresenter;
+import ru.fivestarter.demo.user.creation.CreateUserPresenter;
+import ru.fivestarter.demo.user.creation.CreateUserWindow;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;

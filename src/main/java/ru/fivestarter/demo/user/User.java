@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.user;
 
 import java.time.LocalDate;
 

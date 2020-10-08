@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.user.content;
 
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
@@ -13,6 +13,5 @@ public class UserContentView extends VerticalLayout {
 
     public UserContentView() {
         addComponent(new Label("User list"));
-
     }
 }

@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.user.creation;
 
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Resource;
@@ -13,6 +13,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import ru.fivestarter.demo.user.User;
 
 public class CreateUserWindow extends Window {
 

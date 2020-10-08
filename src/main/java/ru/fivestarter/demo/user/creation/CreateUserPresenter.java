@@ -1,4 +1,6 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.user.creation;
+
+import ru.fivestarter.demo.user.User;
 
 public class CreateUserPresenter {
 
