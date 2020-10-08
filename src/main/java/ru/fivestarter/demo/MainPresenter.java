@@ -10,10 +10,13 @@ import com.vaadin.ui.VerticalLayout;
 
 @SpringUI
 @Theme("valo")
-public class MainPage extends UI {
-
+public class MainPresenter extends UI {
 
     private Button clickMeButton;
+    private CreateUserPresenter createUserPresenter;
+    private UserContentPresenter userContentPresenter;
+    private MainView mainView = new MainView();
+    private CreateUserWindow createUserWindow = new CreateUserWindow();
 
     @Override
     protected void init(VaadinRequest request) {
@@ -24,15 +27,19 @@ public class MainPage extends UI {
 
     private void initElements() {
         clickMeButton = new Button("Click Me");
+        userContentPresenter = new UserContentPresenter(mainView.getUserContentView());
+        createUserPresenter = new CreateUserPresenter(createUserWindow);
     }
 
     private void initListeners() {
-        clickMeButton.addClickListener(event -> UI.getCurrent().addWindow(new AuthorizationSubWindow()));
+        clickMeButton.addClickListener(event -> UI.getCurrent().addWindow(createUserWindow));
+        createUserPresenter.setOnClickButtonListener(user -> userContentPresenter.addUser(user));
     }
 
     private void buildLayout() {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.addComponent(clickMeButton);
+        mainLayout.addComponent(mainView.getUserContentView());
         mainLayout.setComponentAlignment(clickMeButton, Alignment.BOTTOM_CENTER);
         setContent(mainLayout);
     }
