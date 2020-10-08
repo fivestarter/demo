@@ -12,7 +12,7 @@ public class CreateUserPresenter implements Serializable {
     }
 
     public void setOnClickCreateUserButtonListener(UserInterface userInterface) {
-        createUserWindow.setUserInterface(userInterface);
+        createUserWindow.setOnClickCreateUserButtonListener(userInterface);
     }
 
     public interface UserInterface extends Serializable {

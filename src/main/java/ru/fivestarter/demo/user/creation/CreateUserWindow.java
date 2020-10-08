@@ -41,7 +41,7 @@ public class CreateUserWindow extends Window {
         buildLayout();
     }
 
-    public void setUserInterface(CreateUserPresenter.UserInterface userInterface) {
+    public void setOnClickCreateUserButtonListener(CreateUserPresenter.UserInterface userInterface) {
         this.userInterface = userInterface;
     }
 
