@@ -7,69 +7,62 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 public class AuthorizationSubWindow extends Window {
-    private final FormLayout form = new FormLayout();
-    private final HorizontalLayout buttonsLayout = new HorizontalLayout();
-    private final TextField loginField = new TextField("Login");
-    private final TextField passwordField = new PasswordField("Password");
-    private final Button authorizeButton = new Button("Authorize");
-    private final Button cancelButton = new Button("Cancel");
 
-    public AuthorizationSubWindow(String caption) {
-        super(caption);
-        init();
-    }
+    private TextField loginField;
+    private TextField passwordField;
+    private Button authorizeButton;
+    private Button cancelButton;
 
-    protected void init() {
-        initForm();
-
-        setContent(form);
+    public AuthorizationSubWindow() {
+        super("Authorization window");
+        center();
         setModal(true);
         setClosable(false);
         setWidth(25, Unit.PERCENTAGE);
+
+        initElements();
+        initListeners();
+        buildLayout();
     }
 
-    private void initForm() {
-        initLoginField();
-        initPasswordField();
-        initButtonsLayout();
-
-        form.addComponent(loginField);
-        form.addComponent(passwordField);
-        form.addComponent(buttonsLayout);
-    }
-
-    private void initLoginField() {
+    private void initElements() {
+        loginField = new TextField("Login");
         loginField.setIcon(VaadinIcons.USER);
         loginField.setRequiredIndicatorVisible(true);
-    }
 
-    private void initPasswordField() {
+        passwordField = new PasswordField("Password");
         passwordField.setIcon(VaadinIcons.PASSWORD);
         passwordField.setRequiredIndicatorVisible(true);
+
+        authorizeButton = new Button("Authorize");
+        cancelButton = new Button("Cancel");
     }
 
-    private void initButtonsLayout() {
-        initAuthorizeButton();
-        initCancelButton();
-        buttonsLayout.addComponent(authorizeButton);
-        buttonsLayout.addComponent(cancelButton);
-    }
-
-    private void initAuthorizeButton() {
+    private void initListeners() {
         authorizeButton.addClickListener(event ->
                 Notification.show("This is the authorize information:",
                         String.format("Login: %s, Password: %s", loginField.getValue(), passwordField.getValue()),
                         Notification.Type.HUMANIZED_MESSAGE));
-    }
 
-    private void initCancelButton() {
         cancelButton.addClickListener(event -> {
             loginField.clear();
             passwordField.clear();
             close();
         });
+    }
+
+    private void buildLayout() {
+        final VerticalLayout mainLayout = new VerticalLayout();
+        final FormLayout authorizationForm = new FormLayout();
+        final HorizontalLayout buttonsLayout = new HorizontalLayout();
+
+        mainLayout.addComponents(authorizationForm, buttonsLayout);
+        authorizationForm.addComponents(loginField, passwordField);
+        buttonsLayout.addComponents(authorizeButton, cancelButton);
+        setContent(mainLayout);
     }
 }
