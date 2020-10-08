@@ -66,6 +66,10 @@ public class AuthorizationSubWindow extends Window {
     }
 
     private void initCancelButton() {
-        cancelButton.addClickListener(event -> close());
+        cancelButton.addClickListener(event -> {
+            loginField.clear();
+            passwordField.clear();
+            close();
+        });
     }
 }
