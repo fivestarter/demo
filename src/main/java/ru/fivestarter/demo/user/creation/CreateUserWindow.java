@@ -102,7 +102,6 @@ public class CreateUserWindow extends Window {
                 lastNameField.getValue(),
                 passwordField.getValue(),
                 birthDayField.getValue());
-
     }
 
     private String validate() {

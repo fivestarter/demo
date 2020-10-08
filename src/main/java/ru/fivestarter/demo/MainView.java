@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class MainView extends VerticalLayout {
 
     private Button addUserButton;
-    private UserContentView userContentView = new UserContentView();
+    private final UserContentView userContentView = new UserContentView();
 
     private MainPresenter.CreateUserInterface createUserInterface;
 

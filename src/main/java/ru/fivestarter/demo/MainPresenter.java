@@ -16,8 +16,8 @@ public class MainPresenter extends UI {
 
     private CreateUserPresenter createUserPresenter;
     private UserContentPresenter userContentPresenter;
-    private MainView mainView = new MainView();
-    private CreateUserWindow createUserWindow = new CreateUserWindow();
+    private final MainView mainView = new MainView();
+    private final CreateUserWindow createUserWindow = new CreateUserWindow();
 
     @Override
     protected void init(VaadinRequest request) {

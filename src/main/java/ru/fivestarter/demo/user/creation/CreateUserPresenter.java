@@ -3,7 +3,7 @@ package ru.fivestarter.demo.user.creation;
 import ru.fivestarter.demo.user.User;
 import java.io.Serializable;
 
-public class CreateUserPresenter {
+public class CreateUserPresenter implements Serializable {
 
     private final CreateUserWindow createUserWindow;
 

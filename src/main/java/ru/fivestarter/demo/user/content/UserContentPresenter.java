@@ -5,9 +5,10 @@ import org.apache.commons.lang3.StringUtils;
 import com.vaadin.ui.Label;
 
 import ru.fivestarter.demo.user.User;
+import java.io.Serializable;
 
-public class UserContentPresenter {
-    private UserContentView userContentView;
+public class UserContentPresenter implements Serializable {
+    private final UserContentView userContentView;
 
     public UserContentPresenter(UserContentView userContentView) {
         this.userContentView = userContentView;
