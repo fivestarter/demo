@@ -33,12 +33,11 @@ public class AuthorizationSubWindow extends Window {
 
     private void initForm() {
         initLoginField();
-        form.addComponent(loginField);
-
         initPasswordField();
-        form.addComponent(passwordField);
-
         initButtonsLayout();
+
+        form.addComponent(loginField);
+        form.addComponent(passwordField);
         form.addComponent(buttonsLayout);
     }
 
