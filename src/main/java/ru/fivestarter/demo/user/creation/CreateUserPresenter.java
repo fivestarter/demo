@@ -11,13 +11,13 @@ public class CreateUserPresenter implements Serializable {
         this.createUserWindow = createUserWindow;
     }
 
-    public void setOnClickCreateUserButtonListener(UserInterface userInterface) {
-        createUserWindow.setOnClickCreateUserButtonListener(userInterface);
+    public void setOnClickCreateUserButtonListener(CreateUserButtonListener createUserButtonListener) {
+        createUserWindow.setOnClickCreateUserButtonListener(createUserButtonListener);
     }
 
     //todo rename
     //where should it be?
-    public interface UserInterface extends Serializable {
+    public interface CreateUserButtonListener extends Serializable {
         void getUser(User user);
     }
 }

@@ -27,7 +27,7 @@ public class CreateUserWindow extends Window {
     private TextField passwordField;
     private Button createUserButton;
     private Button cancelButton;
-    private CreateUserPresenter.UserInterface userInterface;
+    private CreateUserPresenter.CreateUserButtonListener createUserButtonListener;
 
     public CreateUserWindow() {
         super("Create user window");
@@ -41,8 +41,8 @@ public class CreateUserWindow extends Window {
         buildLayout();
     }
 
-    public void setOnClickCreateUserButtonListener(CreateUserPresenter.UserInterface userInterface) {
-        this.userInterface = userInterface;
+    public void setOnClickCreateUserButtonListener(CreateUserPresenter.CreateUserButtonListener createUserButtonListener) {
+        this.createUserButtonListener = createUserButtonListener;
     }
 
     private void initElements() {
@@ -84,7 +84,7 @@ public class CreateUserWindow extends Window {
         String validationErrors = validate();
         if (StringUtils.isBlank(validationErrors)) {
             User user = gatherData();
-            userInterface.getUser(user);
+            createUserButtonListener.getUser(user);
             clearFieldsData();
             close();
         } else {
