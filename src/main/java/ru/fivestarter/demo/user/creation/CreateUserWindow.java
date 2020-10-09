@@ -76,8 +76,7 @@ public class CreateUserWindow extends Window {
     }
 
     private void closeWindow() {
-        loginField.clear();
-        passwordField.clear();
+        clearFieldsData();
         close();
     }
 
@@ -86,6 +85,7 @@ public class CreateUserWindow extends Window {
         if (StringUtils.isBlank(validationErrors)) {
             User user = gatherData();
             userInterface.getUser(user);
+            clearFieldsData();
             close();
         } else {
             Notification.show("There were problems with the following fields:",
@@ -93,6 +93,14 @@ public class CreateUserWindow extends Window {
                     Notification.Type.ERROR_MESSAGE);
         }
 
+    }
+
+    private void clearFieldsData() {
+        loginField.clear();
+        firstNameField.clear();
+        lastNameField.clear();
+        passwordField.clear();
+        birthDayField.clear();
     }
 
     private User gatherData() {

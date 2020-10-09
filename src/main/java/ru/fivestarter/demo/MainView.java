@@ -5,14 +5,12 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.VerticalLayout;
 
 import ru.fivestarter.demo.user.content.UserContentView;
-import java.io.Serializable;
 
 public class MainView extends VerticalLayout {
 
+    private final UserContentView userContentView = new UserContentView();
     //todo should it be here?
     private Button addUserButton;
-    private final UserContentView userContentView = new UserContentView();
-
     private transient AddUserDialogListener addUserDialogListener;
 
     public MainView() {
