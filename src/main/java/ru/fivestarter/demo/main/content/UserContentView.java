@@ -2,7 +2,6 @@ package ru.fivestarter.demo.main.content;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -10,24 +9,20 @@ import org.springframework.stereotype.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
-import ru.fivestarter.demo.dao.UserRepository;
-
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class UserContentView extends VerticalLayout {
 
-    private final VerticalLayout containerView = new VerticalLayout();
-    private final UserRepository userRepository;
-
-    @Autowired
-    public UserContentView(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private VerticalLayout containerView;
 
     @PostConstruct
     public void init() {
-        //todo initElements
+        initElements();
         buildLayout();
+    }
+
+    private void initElements() {
+        containerView = new VerticalLayout();
     }
 
     private void buildLayout() {
