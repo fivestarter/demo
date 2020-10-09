@@ -1,20 +1,29 @@
 package ru.fivestarter.demo.main;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vaadin.navigator.View;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.VerticalLayout;
 
 import ru.fivestarter.demo.user.content.UserContentView;
 
-public class MainView extends VerticalLayout {
+@UIScope
+@SpringView()
+public class MainView extends VerticalLayout implements View {
 
-    private final UserContentView userContentView = new UserContentView();
+    private final UserContentView userContentView;
     //todo should it be here?
     private Button addUserButton;
     private transient AddUserButtonListener addUserButtonListener;
 
-    public MainView() {
+    @Autowired
+    public MainView(UserContentView userContentView) {
         super();
+        this.userContentView = userContentView;
         initElements();
         initListeners();
         buildLayout();

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserRepository {
-    Iterable<User> findAll() {
+
+    public Iterable<User> findAll() {
         User user = new User(
                 "johnd",
                 "John",

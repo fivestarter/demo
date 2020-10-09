@@ -1,5 +1,7 @@
 package ru.fivestarter.demo.main;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
@@ -13,11 +15,17 @@ import ru.fivestarter.demo.user.creation.CreateUserWindow;
 @Theme("valo")
 public class MainPresenter extends UI {
 
-    private final MainView mainView = new MainView();
+    private final MainView mainView;
     //should it be in Main view?
     private final CreateUserWindow createUserWindow = new CreateUserWindow();
     private CreateUserPresenter createUserPresenter;
     private UserContentPresenter userContentPresenter;
+
+    @Autowired
+    public MainPresenter(MainView mainView) {
+        super();
+        this.mainView = mainView;
+    }
 
     @Override
     protected void init(VaadinRequest request) {
