@@ -1,14 +1,15 @@
-package ru.fivestarter.demo.user.dao;
+package ru.fivestarter.demo.dao;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserRepository {
 
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         User user = new User(
                 "johnd",
                 "John",

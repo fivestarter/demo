@@ -1,50 +1,44 @@
 package ru.fivestarter.demo.main;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-import com.vaadin.annotations.Theme;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
-import ru.fivestarter.demo.user.content.UserContentPresenter;
-import ru.fivestarter.demo.user.creation.CreateUserPresenter;
-import ru.fivestarter.demo.user.creation.CreateUserWindow;
+import ru.fivestarter.demo.main.content.UserContentPresenter;
+import ru.fivestarter.demo.main.creation.CreateUserPresenter;
 
-@SpringUI
-@Theme("valo")
-public class MainPresenter extends UI {
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+public class MainPresenter {
 
-    private final MainView mainView;
-    //should it be in Main view?
-    private final CreateUserWindow createUserWindow = new CreateUserWindow();
-    private CreateUserPresenter createUserPresenter;
-    private UserContentPresenter userContentPresenter;
+    private final CreateUserPresenter createUserPresenter;
+    private final UserContentPresenter userContentPresenter;
+    private VerticalLayout mainView;
 
     @Autowired
-    public MainPresenter(MainView mainView) {
-        super();
-        this.mainView = mainView;
+    public MainPresenter(CreateUserPresenter createUserPresenter, UserContentPresenter userContentPresenter) {
+        this.createUserPresenter = createUserPresenter;
+        this.userContentPresenter = userContentPresenter;
     }
 
-    @Override
-    protected void init(VaadinRequest request) {
-        initElements();
+    @PostConstruct
+    public void init() {
+        mainView = new VerticalLayout();
         initListeners();
-        buildLayout();
-    }
 
-    private void initElements() {
-        userContentPresenter = new UserContentPresenter(mainView.getUserContentView());
-        createUserPresenter = new CreateUserPresenter(createUserWindow);
+        mainView.addComponents(createUserPresenter.getCreateUserView(), userContentPresenter.getUserContentView());
     }
 
     private void initListeners() {
-        mainView.setOnClickAddUserButtonListener(() -> UI.getCurrent().addWindow(createUserWindow));
-        createUserPresenter.setOnClickCreateUserButtonListener(user -> userContentPresenter.addUser(user));
+        createUserPresenter.setCreateUserListener(userContentPresenter::addUser);
     }
 
-    private void buildLayout() {
-        setContent(mainView);
+    public VerticalLayout getMainView() {
+        return mainView;
     }
 }
