@@ -13,7 +13,7 @@ public class MainView extends VerticalLayout {
     private Button addUserButton;
     private final UserContentView userContentView = new UserContentView();
 
-    private AddUserDialogListener addUserDialogListener;
+    private transient AddUserDialogListener addUserDialogListener;
 
     public MainView() {
         super();
@@ -43,7 +43,7 @@ public class MainView extends VerticalLayout {
         setComponentAlignment(addUserButton, Alignment.BOTTOM_CENTER);
     }
 
-    public interface AddUserDialogListener extends Serializable {
+    public interface AddUserDialogListener {
         void addUser();
     }
 }
