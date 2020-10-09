@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.main;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;

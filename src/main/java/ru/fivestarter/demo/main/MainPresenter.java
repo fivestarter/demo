@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.main;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
