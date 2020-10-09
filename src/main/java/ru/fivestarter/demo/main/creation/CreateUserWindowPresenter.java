@@ -50,7 +50,6 @@ public class CreateUserWindowPresenter {
                     validationErrors,
                     Notification.Type.ERROR_MESSAGE);
         }
-
     }
 
     private void clearFieldsData() {
