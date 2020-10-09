@@ -18,6 +18,7 @@ public class UserContentPresenter implements Serializable {
         userContentView.getContainerView().addComponent(new Label(toStringLabelText(user)));
     }
 
+    //where should it be?
     private String toStringLabelText(User user) {
         return user.getLogin() +
                 StringUtils.SPACE +

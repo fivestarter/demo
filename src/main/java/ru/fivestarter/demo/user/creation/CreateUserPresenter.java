@@ -15,6 +15,8 @@ public class CreateUserPresenter implements Serializable {
         createUserWindow.setOnClickCreateUserButtonListener(userInterface);
     }
 
+    //todo rename
+    //where should it be?
     public interface UserInterface extends Serializable {
         void getUser(User user);
     }

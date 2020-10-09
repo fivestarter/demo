@@ -17,6 +17,7 @@ public class MainPresenter extends UI {
     private CreateUserPresenter createUserPresenter;
     private UserContentPresenter userContentPresenter;
     private final MainView mainView = new MainView();
+    //should it be in Main view?
     private final CreateUserWindow createUserWindow = new CreateUserWindow();
 
     @Override
@@ -40,6 +41,8 @@ public class MainPresenter extends UI {
         setContent(mainView);
     }
 
+    //todo rename
+    //where should it be?
     public interface AddUserInterface extends Serializable {
         void create();
     }
