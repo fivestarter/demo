@@ -31,14 +31,14 @@ public class MainPresenter {
         mainView = new VerticalLayout();
         initListeners();
 
-        mainView.addComponents(createUserPresenter.getCreateUserView(), userContentPresenter.getUserContentView());
+        mainView.addComponents(createUserPresenter.getView(), userContentPresenter.getView());
     }
 
     private void initListeners() {
         createUserPresenter.setCreateUserListener(userContentPresenter::addUser);
     }
 
-    public VerticalLayout getMainView() {
+    public VerticalLayout getView() {
         return mainView;
     }
 }

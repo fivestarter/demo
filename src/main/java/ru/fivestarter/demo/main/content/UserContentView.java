@@ -29,7 +29,7 @@ public class UserContentView extends VerticalLayout {
         addComponents(new Label("Блок отображения юзеров"), containerView);
     }
 
-    public VerticalLayout getContainerView() {
+    public VerticalLayout getView() {
         return containerView;
     }
     //todo

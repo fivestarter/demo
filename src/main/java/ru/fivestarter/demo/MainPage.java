@@ -24,6 +24,6 @@ public class MainPage extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-        setContent(mainPresenter.getMainView());
+        setContent(mainPresenter.getView());
     }
 }

@@ -36,12 +36,12 @@ public class UserContentPresenter {
 
     }
 
-    public UserContentView getUserContentView() {
-        return userContentView;
-    }
-
     public void addUser(User user) {
         userContentView.addUserRow(user.toStringLabelText());
+    }
+
+    public UserContentView getView() {
+        return userContentView;
     }
 
     //fillData для справочных значений, предзаполнение для вьюх

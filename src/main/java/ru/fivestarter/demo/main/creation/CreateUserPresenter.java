@@ -35,7 +35,7 @@ public class CreateUserPresenter {
         createUserWindowPresenter.setCreateUserListener(addUserListener);
     }
 
-    public CreateUserView getCreateUserView() {
+    public CreateUserView getView() {
         return createUserView;
     }
 }
