@@ -11,7 +11,7 @@ public class MainView extends VerticalLayout {
     private final UserContentView userContentView = new UserContentView();
     //todo should it be here?
     private Button addUserButton;
-    private transient AddUserDialogListener addUserDialogListener;
+    private transient AddUserButtonListener addUserButtonListener;
 
     public MainView() {
         super();
@@ -20,8 +20,8 @@ public class MainView extends VerticalLayout {
         buildLayout();
     }
 
-    public void setOnClickAddUserButtonListener(AddUserDialogListener addUserDialogListener) {
-        this.addUserDialogListener = addUserDialogListener;
+    public void setOnClickAddUserButtonListener(AddUserButtonListener addUserButtonListener) {
+        this.addUserButtonListener = addUserButtonListener;
     }
 
     public UserContentView getUserContentView() {
@@ -33,7 +33,7 @@ public class MainView extends VerticalLayout {
     }
 
     private void initListeners() {
-        addUserButton.addClickListener(event -> addUserDialogListener.addUser());
+        addUserButton.addClickListener(event -> addUserButtonListener.addUser());
     }
 
     private void buildLayout() {
@@ -41,7 +41,7 @@ public class MainView extends VerticalLayout {
         setComponentAlignment(addUserButton, Alignment.BOTTOM_CENTER);
     }
 
-    public interface AddUserDialogListener {
+    public interface AddUserButtonListener {
         void addUser();
     }
 }
