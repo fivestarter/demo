@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.dao;
+package ru.fivestarter.demo.model;
 
 import java.time.LocalDate;
 

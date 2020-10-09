@@ -1,6 +1,6 @@
 package ru.fivestarter.demo.main.creation;
 
-import ru.fivestarter.demo.dao.User;
+import ru.fivestarter.demo.model.User;
 import java.util.Objects;
 
 import javax.annotation.PostConstruct;

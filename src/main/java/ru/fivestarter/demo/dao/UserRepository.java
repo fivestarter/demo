@@ -1,5 +1,6 @@
 package ru.fivestarter.demo.dao;
 
+import ru.fivestarter.demo.model.User;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;

@@ -9,20 +9,19 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import ru.fivestarter.demo.dao.User;
-import ru.fivestarter.demo.dao.UserRepository;
+import ru.fivestarter.demo.model.User;
+import ru.fivestarter.demo.service.UserService;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class UserContentPresenter {
     private final UserContentView view;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Autowired
-    public UserContentPresenter(UserContentView userContentView,
-                                UserRepository userRepository) {
+    public UserContentPresenter(UserContentView userContentView, UserService userService) {
         this.view = userContentView;
-        this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @PostConstruct
@@ -31,9 +30,8 @@ public class UserContentPresenter {
     }
 
     private void fillData() {
-        List<User> users = userRepository.findAll();
+        List<User> users = userService.findAll();
         users.forEach(this::addUser);
-
     }
 
     public void addUser(User user) {
@@ -43,6 +41,4 @@ public class UserContentPresenter {
     public UserContentView getView() {
         return view;
     }
-
-    //fillData для справочных значений, предзаполнение для вьюх
 }
