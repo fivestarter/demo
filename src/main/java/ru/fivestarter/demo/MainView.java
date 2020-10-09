@@ -8,6 +8,7 @@ import ru.fivestarter.demo.user.content.UserContentView;
 
 public class MainView extends VerticalLayout {
 
+    //todo should it be here?
     private Button addUserButton;
     private final UserContentView userContentView = new UserContentView();
 
