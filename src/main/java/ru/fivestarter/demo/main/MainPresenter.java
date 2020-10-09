@@ -18,7 +18,7 @@ public class MainPresenter {
 
     private final CreateUserPresenter createUserPresenter;
     private final UserContentPresenter userContentPresenter;
-    private VerticalLayout mainView;
+    private VerticalLayout view;
 
     @Autowired
     public MainPresenter(CreateUserPresenter createUserPresenter, UserContentPresenter userContentPresenter) {
@@ -28,10 +28,10 @@ public class MainPresenter {
 
     @PostConstruct
     public void init() {
-        mainView = new VerticalLayout();
+        view = new VerticalLayout();
         initListeners();
 
-        mainView.addComponents(createUserPresenter.getView(), userContentPresenter.getView());
+        view.addComponents(createUserPresenter.getView(), userContentPresenter.getView());
     }
 
     private void initListeners() {
@@ -39,6 +39,6 @@ public class MainPresenter {
     }
 
     public VerticalLayout getView() {
-        return mainView;
+        return view;
     }
 }

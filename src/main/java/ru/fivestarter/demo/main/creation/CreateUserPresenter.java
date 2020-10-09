@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 public class CreateUserPresenter {
 
     //rename to view
-    private final CreateUserView createUserView;
+    private final CreateUserView view;
     private final CreateUserWindowPresenter createUserWindowPresenter;
 
     @Autowired
     public CreateUserPresenter(CreateUserView createUserView,
                                CreateUserWindowPresenter createUserWindowPresenter) {
-        this.createUserView = createUserView;
+        this.view = createUserView;
         this.createUserWindowPresenter = createUserWindowPresenter;
     }
 
@@ -28,7 +28,7 @@ public class CreateUserPresenter {
     }
 
     private void initListeners() {
-        createUserView.getAddUserButton().addClickListener(event -> createUserWindowPresenter.showWindow());
+        view.getAddUserButton().addClickListener(event -> createUserWindowPresenter.showWindow());
     }
 
     public void setCreateUserListener(AddUserListener addUserListener) {
@@ -36,6 +36,6 @@ public class CreateUserPresenter {
     }
 
     public CreateUserView getView() {
-        return createUserView;
+        return view;
     }
 }

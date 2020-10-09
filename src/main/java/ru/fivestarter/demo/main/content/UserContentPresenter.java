@@ -15,13 +15,13 @@ import ru.fivestarter.demo.dao.UserRepository;
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class UserContentPresenter {
-    private final UserContentView userContentView;
+    private final UserContentView view;
     private final UserRepository userRepository;
 
     @Autowired
     public UserContentPresenter(UserContentView userContentView,
                                 UserRepository userRepository) {
-        this.userContentView = userContentView;
+        this.view = userContentView;
         this.userRepository = userRepository;
     }
 
@@ -37,11 +37,11 @@ public class UserContentPresenter {
     }
 
     public void addUser(User user) {
-        userContentView.addUserRow(user.toStringLabelText());
+        view.addUserRow(user.toStringLabelText());
     }
 
     public UserContentView getView() {
-        return userContentView;
+        return view;
     }
 
     //fillData для справочных значений, предзаполнение для вьюх

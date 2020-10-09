@@ -18,12 +18,12 @@ import com.vaadin.ui.UI;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CreateUserWindowPresenter {
 
-    private final CreateUserWindow createUserWindow;
+    private final CreateUserWindow view;
     private AddUserListener addUserListener;
 
     @Autowired
     public CreateUserWindowPresenter(CreateUserWindow createUserWindow) {
-        this.createUserWindow = createUserWindow;
+        this.view = createUserWindow;
     }
 
     @PostConstruct
@@ -32,8 +32,8 @@ public class CreateUserWindowPresenter {
     }
 
     private void initListeners() {
-        createUserWindow.getCreateUserButton().addClickListener(event -> createUser());
-        createUserWindow.getCancelButton().addClickListener(event -> closeWindow());
+        view.getCreateUserButton().addClickListener(event -> createUser());
+        view.getCancelButton().addClickListener(event -> closeWindow());
     }
 
     public void createUser() {
@@ -54,41 +54,41 @@ public class CreateUserWindowPresenter {
     }
 
     private void clearFieldsData() {
-        createUserWindow.getLoginField().clear();
-        createUserWindow.getFirstNameField().clear();
-        createUserWindow.getLastNameField().clear();
-        createUserWindow.getPasswordField().clear();
-        createUserWindow.getBirthDayField().clear();
+        view.getLoginField().clear();
+        view.getFirstNameField().clear();
+        view.getLastNameField().clear();
+        view.getPasswordField().clear();
+        view.getBirthDayField().clear();
     }
 
     private User gatherData() {
         return new User(
-                createUserWindow.getLoginField().getValue(),
-                createUserWindow.getFirstNameField().getValue(),
-                createUserWindow.getLastNameField().getValue(),
-                createUserWindow.getPasswordField().getValue(),
-                createUserWindow.getBirthDayField().getValue());
+                view.getLoginField().getValue(),
+                view.getFirstNameField().getValue(),
+                view.getLastNameField().getValue(),
+                view.getPasswordField().getValue(),
+                view.getBirthDayField().getValue());
     }
 
     private String validate() {
         StringBuilder validationErrors = new StringBuilder();
-        if (StringUtils.isEmpty(createUserWindow.getLoginField().getValue())) {
+        if (StringUtils.isEmpty(view.getLoginField().getValue())) {
             validationErrors.append("Login can't be blank.");
             validationErrors.append(StringUtils.LF);
         }
-        if (StringUtils.isEmpty(createUserWindow.getFirstNameField().getValue())) {
+        if (StringUtils.isEmpty(view.getFirstNameField().getValue())) {
             validationErrors.append("First name can't be blank.");
             validationErrors.append(StringUtils.LF);
         }
-        if (StringUtils.isEmpty(createUserWindow.getLastNameField().getValue())) {
+        if (StringUtils.isEmpty(view.getLastNameField().getValue())) {
             validationErrors.append("Last name can't be blank.");
             validationErrors.append(StringUtils.LF);
         }
-        if (Objects.isNull(createUserWindow.getBirthDayField().getValue())) {
+        if (Objects.isNull(view.getBirthDayField().getValue())) {
             validationErrors.append("Birth day can't be blank.");
             validationErrors.append(StringUtils.LF);
         }
-        if (StringUtils.isEmpty(createUserWindow.getPasswordField().getValue())) {
+        if (StringUtils.isEmpty(view.getPasswordField().getValue())) {
             validationErrors.append("Password can't be blank.");
             validationErrors.append(StringUtils.LF);
         }
@@ -97,7 +97,7 @@ public class CreateUserWindowPresenter {
 
     private void closeWindow() {
         clearFieldsData();
-        createUserWindow.close();
+        view.close();
     }
 
     public void setCreateUserListener(AddUserListener addUserListener) {
@@ -105,6 +105,6 @@ public class CreateUserWindowPresenter {
     }
 
     public void showWindow() {
-        UI.getCurrent().addWindow(createUserWindow);
+        UI.getCurrent().addWindow(view);
     }
 }

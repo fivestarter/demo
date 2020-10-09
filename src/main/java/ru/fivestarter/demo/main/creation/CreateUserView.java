@@ -26,7 +26,7 @@ public class CreateUserView extends VerticalLayout {
     }
 
     private void buildLayout() {
-        addComponent(new Label("Блок добавления пользователей"));
+        addComponent(new Label("Block for adding users"));
         addComponent(addUserButton);
     }
 
