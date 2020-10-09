@@ -8,17 +8,16 @@ import com.vaadin.ui.UI;
 import ru.fivestarter.demo.user.content.UserContentPresenter;
 import ru.fivestarter.demo.user.creation.CreateUserPresenter;
 import ru.fivestarter.demo.user.creation.CreateUserWindow;
-import java.io.Serializable;
 
 @SpringUI
 @Theme("valo")
 public class MainPresenter extends UI {
 
-    private CreateUserPresenter createUserPresenter;
-    private UserContentPresenter userContentPresenter;
     private final MainView mainView = new MainView();
     //should it be in Main view?
     private final CreateUserWindow createUserWindow = new CreateUserWindow();
+    private CreateUserPresenter createUserPresenter;
+    private UserContentPresenter userContentPresenter;
 
     @Override
     protected void init(VaadinRequest request) {
