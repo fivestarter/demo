@@ -40,10 +40,4 @@ public class MainPresenter extends UI {
     private void buildLayout() {
         setContent(mainView);
     }
-
-    //todo rename
-    //where should it be?
-    public interface AddUserInterface extends Serializable {
-        void create();
-    }
 }
