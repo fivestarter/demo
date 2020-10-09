@@ -1,6 +1,8 @@
-package ru.fivestarter.demo.user;
+package ru.fivestarter.demo.user.dao;
 
 import java.time.LocalDate;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class User {
     private String login;
@@ -55,5 +57,12 @@ public class User {
 
     public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public String toStringLabelText() {
+        return getLogin() + StringUtils.SPACE
+                + getFirstName() + StringUtils.SPACE
+                + getLastName() + StringUtils.SPACE
+                + getBirthdate();
     }
 }

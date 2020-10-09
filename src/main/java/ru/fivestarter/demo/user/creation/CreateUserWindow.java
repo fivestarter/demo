@@ -16,7 +16,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
-import ru.fivestarter.demo.user.User;
+import ru.fivestarter.demo.user.dao.User;
 
 public class CreateUserWindow extends Window {
 
