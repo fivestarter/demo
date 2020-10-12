@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.server.Resource;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
@@ -43,15 +43,21 @@ public class UserCreationWindow extends Window {
     }
 
     private void initElements() {
-        loginField = initFormField("Login", VaadinIcons.USER);
-        firstNameField = initFormField("First name", VaadinIcons.USER);
-        lastNameField = initFormField("Last name", VaadinIcons.USER);
+        loginField = initFormField("Login");
+        firstNameField = initFormField("First name");
+        lastNameField = initFormField("Last name");
         birthDayField = initBirthDayField();
-        //todo init passwordField
-        passwordField = initFormField("Password", VaadinIcons.PASSWORD);
+        passwordField = initPasswordField();
 
         createUserButton = new Button("Create");
         cancelButton = new Button("Cancel");
+    }
+
+    private PasswordField initPasswordField() {
+        PasswordField field = new PasswordField("Password");
+        field.setIcon(VaadinIcons.PASSWORD);
+        field.setRequiredIndicatorVisible(true);
+        return field;
     }
 
     private DateField initBirthDayField() {
@@ -61,9 +67,9 @@ public class UserCreationWindow extends Window {
         return dateField;
     }
 
-    private TextField initFormField(String caption, Resource icon) {
+    private TextField initFormField(String caption) {
         final TextField textField = new TextField(caption);
-        textField.setIcon(icon);
+        textField.setIcon(VaadinIcons.USER);
         textField.setRequiredIndicatorVisible(true);
         return textField;
     }
@@ -91,31 +97,31 @@ public class UserCreationWindow extends Window {
         return authorizationForm;
     }
 
-    public TextField getLoginField() {
+    TextField getLoginField() {
         return loginField;
     }
 
-    public TextField getFirstNameField() {
+    TextField getFirstNameField() {
         return firstNameField;
     }
 
-    public TextField getLastNameField() {
+    TextField getLastNameField() {
         return lastNameField;
     }
 
-    public DateField getBirthDayField() {
+    DateField getBirthDayField() {
         return birthDayField;
     }
 
-    public TextField getPasswordField() {
+    TextField getPasswordField() {
         return passwordField;
     }
 
-    public Button getCreateUserButton() {
+    Button getCreateUserButton() {
         return createUserButton;
     }
 
-    public Button getCancelButton() {
+    Button getCancelButton() {
         return cancelButton;
     }
 }
