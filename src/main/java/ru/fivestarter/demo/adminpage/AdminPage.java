@@ -1,4 +1,4 @@
-package ru.fivestarter.demo;
+package ru.fivestarter.demo.adminpage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -8,22 +8,20 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 
-import ru.fivestarter.demo.main.MainPresenter;
-
 @SpringUI()
 @Theme("valo")
-@Title(value = "Main Page")
-public class MainPage extends UI {
+@Title(value = "Admin Page")
+public class AdminPage extends UI {
 
-    private final MainPresenter mainPresenter;
+    private final AdminPresenter adminPresenter;
 
     @Autowired
-    public MainPage(MainPresenter mainPresenter) {
-        this.mainPresenter = mainPresenter;
+    public AdminPage(AdminPresenter adminPresenter) {
+        this.adminPresenter = adminPresenter;
     }
 
     @Override
     protected void init(VaadinRequest request) {
-        setContent(mainPresenter.getView());
+        setContent(adminPresenter.getView());
     }
 }

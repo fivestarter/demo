@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.usercreation;
+package ru.fivestarter.demo.adminpage.usercreation;
 
 import ru.fivestarter.demo.model.User;
 import java.util.Objects;

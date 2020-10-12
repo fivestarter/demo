@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.content;
+package ru.fivestarter.demo.adminpage.usercontent;
 
 import javax.annotation.PostConstruct;
 
