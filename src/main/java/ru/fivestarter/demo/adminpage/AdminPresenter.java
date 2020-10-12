@@ -18,7 +18,7 @@ public class AdminPresenter {
 
     private final UserCreationPresenter userCreationPresenter;
     private final UserContentPresenter userContentPresenter;
-    private VerticalLayout view;
+    private final VerticalLayout view =  new VerticalLayout();
 
     @Autowired
     public AdminPresenter(UserCreationPresenter userCreationPresenter, UserContentPresenter userContentPresenter) {
@@ -28,14 +28,16 @@ public class AdminPresenter {
 
     @PostConstruct
     public void init() {
-        view = new VerticalLayout();
         initListeners();
-
-        view.addComponents(userCreationPresenter.getView(), userContentPresenter.getView());
+        buildLayout();
     }
 
     private void initListeners() {
         userCreationPresenter.setCreateUserListener(userContentPresenter::addUser);
+    }
+
+    private void buildLayout() {
+        view.addComponents(userCreationPresenter.getView(), userContentPresenter.getView());
     }
 
     public VerticalLayout getView() {

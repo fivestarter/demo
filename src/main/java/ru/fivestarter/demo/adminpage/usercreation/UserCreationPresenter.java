@@ -1,5 +1,8 @@
 package ru.fivestarter.demo.adminpage.usercreation;
 
+import ru.fivestarter.demo.adminpage.usercreationwindow.AddUserListener;
+import ru.fivestarter.demo.adminpage.usercreationwindow.UserCreationWindowPresenter;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.adminpage.usercreation;
+package ru.fivestarter.demo.adminpage.usercreationwindow;
 
 import javax.annotation.PostConstruct;
 
@@ -32,7 +32,7 @@ public class UserCreationWindow extends Window {
 
     @PostConstruct
     public void init() {
-        setCaption("Create user window");
+        setCaption("User creation window");
         center();
         setModal(true);
         setClosable(false);
@@ -47,6 +47,7 @@ public class UserCreationWindow extends Window {
         firstNameField = initFormField("First name", VaadinIcons.USER);
         lastNameField = initFormField("Last name", VaadinIcons.USER);
         birthDayField = initBirthDayField();
+        //todo init passwordField
         passwordField = initFormField("Password", VaadinIcons.PASSWORD);
 
         createUserButton = new Button("Create");
@@ -54,7 +55,7 @@ public class UserCreationWindow extends Window {
     }
 
     private DateField initBirthDayField() {
-        DateField dateField = new DateField("Birth day");
+        final DateField dateField = new DateField("Birth day");
         dateField.setIcon(VaadinIcons.DATE_INPUT);
         dateField.setRequiredIndicatorVisible(true);
         return dateField;

@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.adminpage.usercreation;
+package ru.fivestarter.demo.adminpage.usercreationwindow;
 
 import ru.fivestarter.demo.model.User;
 
