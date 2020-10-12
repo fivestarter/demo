@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.creation;
+package ru.fivestarter.demo.main.usercreation;
 
 import javax.annotation.PostConstruct;
 
@@ -12,7 +12,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class CreateUserView extends VerticalLayout {
+public class UserCreationView extends VerticalLayout {
     private Button addUserButton;
 
     @PostConstruct

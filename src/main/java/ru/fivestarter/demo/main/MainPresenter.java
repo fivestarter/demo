@@ -10,19 +10,19 @@ import org.springframework.stereotype.Component;
 import com.vaadin.ui.VerticalLayout;
 
 import ru.fivestarter.demo.main.content.UserContentPresenter;
-import ru.fivestarter.demo.main.creation.CreateUserPresenter;
+import ru.fivestarter.demo.main.usercreation.UserCreationPresenter;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class MainPresenter {
 
-    private final CreateUserPresenter createUserPresenter;
+    private final UserCreationPresenter userCreationPresenter;
     private final UserContentPresenter userContentPresenter;
     private VerticalLayout view;
 
     @Autowired
-    public MainPresenter(CreateUserPresenter createUserPresenter, UserContentPresenter userContentPresenter) {
-        this.createUserPresenter = createUserPresenter;
+    public MainPresenter(UserCreationPresenter userCreationPresenter, UserContentPresenter userContentPresenter) {
+        this.userCreationPresenter = userCreationPresenter;
         this.userContentPresenter = userContentPresenter;
     }
 
@@ -31,11 +31,11 @@ public class MainPresenter {
         view = new VerticalLayout();
         initListeners();
 
-        view.addComponents(createUserPresenter.getView(), userContentPresenter.getView());
+        view.addComponents(userCreationPresenter.getView(), userContentPresenter.getView());
     }
 
     private void initListeners() {
-        createUserPresenter.setCreateUserListener(userContentPresenter::addUser);
+        userCreationPresenter.setCreateUserListener(userContentPresenter::addUser);
     }
 
     public VerticalLayout getView() {

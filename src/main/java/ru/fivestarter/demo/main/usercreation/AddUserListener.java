@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.creation;
+package ru.fivestarter.demo.main.usercreation;
 
 import ru.fivestarter.demo.model.User;
 

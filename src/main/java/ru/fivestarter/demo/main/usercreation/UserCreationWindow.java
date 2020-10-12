@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.creation;
+package ru.fivestarter.demo.main.usercreation;
 
 import javax.annotation.PostConstruct;
 
@@ -19,7 +19,7 @@ import com.vaadin.ui.Window;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class CreateUserWindow extends Window {
+public class UserCreationWindow extends Window {
 
     private TextField loginField;
     private TextField firstNameField;

@@ -1,4 +1,4 @@
-package ru.fivestarter.demo.main.creation;
+package ru.fivestarter.demo.main.usercreation;
 
 import ru.fivestarter.demo.model.User;
 import java.util.Objects;
@@ -16,14 +16,14 @@ import com.vaadin.ui.UI;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class CreateUserWindowPresenter {
+public class UserCreationWindowPresenter {
 
-    private final CreateUserWindow view;
+    private final UserCreationWindow view;
     private AddUserListener addUserListener;
 
     @Autowired
-    public CreateUserWindowPresenter(CreateUserWindow createUserWindow) {
-        this.view = createUserWindow;
+    public UserCreationWindowPresenter(UserCreationWindow userCreationWindow) {
+        this.view = userCreationWindow;
     }
 
     @PostConstruct
