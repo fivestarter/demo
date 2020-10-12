@@ -14,7 +14,6 @@ import com.vaadin.ui.VerticalLayout;
 public class UserContentView extends VerticalLayout {
 
     private VerticalLayout containerView;
-    private Label userDisplayLabel;
 
     @PostConstruct
     public void init() {
@@ -24,12 +23,11 @@ public class UserContentView extends VerticalLayout {
     }
 
     private void initElements() {
-        userDisplayLabel = new Label("User display block");
         containerView = new VerticalLayout();
     }
 
     private void buildLayout() {
-        addComponents(userDisplayLabel, containerView);
+        addComponents(new Label("User display block"), containerView);
     }
 
     public VerticalLayout getView() {

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class UserCreationPresenter {
 
-    //rename to view
     private final UserCreationView view;
     private final UserCreationWindowPresenter userCreationWindowPresenter;
 
