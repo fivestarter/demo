@@ -30,7 +30,7 @@ public class UserContentPresenter {
     }
 
     private void fillData() {
-        List<User> users = userService.findAll();
+        List<User> users = userService.findAllUsers();
         users.forEach(this::addUser);
     }
 
