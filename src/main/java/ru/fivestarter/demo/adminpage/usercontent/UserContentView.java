@@ -30,10 +30,6 @@ public class UserContentView extends VerticalLayout {
         addComponents(new Label("User display block"), containerView);
     }
 
-    public VerticalLayout getView() {
-        return containerView;
-    }
-
     public void addUserRow(String userData) {
         containerView.addComponent(new Label(userData));
     }

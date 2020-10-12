@@ -30,7 +30,7 @@ public class UserCreationView extends VerticalLayout {
         addComponent(addUserButton);
     }
 
-    public Button getAddUserButton() {
+    Button getAddUserButton() {
         return addUserButton;
     }
 }
